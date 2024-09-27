@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Christ University</title>
+    <style>
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+      }
+      header {
+        background-color: #8c1515;
+        color: white;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .logo {
+        font-size: 24px;
+        font-weight: bold;
+      }
+      nav ul {
+        list-style-type: none;
+        display: flex;
+        gap: 20px;
+      }
+      nav ul li a {
+        color: white;
+        text-decoration: none;
+      }
+      .hero {
+        position: relative;
+        height: 500px;
+        background-image: url("https://www.stanford.edu/wp-content/uploads/2024/09/20240917_NSO_Convocation_95A6053-1.jpg");
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .hero-content {
+        text-align: center;
+        color: white;
+        z-index: 1;
+      }
+      .hero-content h1 {
+        font-size: 72px;
+        margin-bottom: 20px;
+      }
+      .cta-button {
+        background-color: #8c1515;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        font-size: 18px;
+        border-radius: 5px;
+      }
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+      main {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            font-size: 48px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 40px;
+        }
+        .academic-areas {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .academic-area {
+            flex: 1;
+            text-align: center;
+        }
+        .academic-area img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+        .academic-area h3 {
+            margin-bottom: 10px;
+        }
+        .academic-area p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        .academic-area a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a href="index.html" style="text-decoration: none; color: white;"
+        ><div class="logo">Christ University</div></a
+      >
+      <nav>
+        <ul>
+          <li><a href="#news">News</a></li>
+          <li><a href="#events">Events</a></li>
+          <li><a href="#academics">Academics</a></li>
+          <li><a href="#research">Research</a></li>
+          <li><a href="#health-care">Health Care</a></li>
+          <li><a href="#campus-life">Campus Life</a></li>
+          <li><a href="payment.html">Fees Portal</a></li>
+          <li><a href="login.html">Login</a></li>
+        </ul>
+      </nav>
+    </header>
+  
+      <section class="hero">
+        <div class="overlay"></div>
+        <div class="hero-content">
+          <h1>CUET</h1>
+          <a href="#explore" class="cta-button">Explore Christ</a>
+        </div>
+      </section>
+  
+       <main>
+        <h1>Academics</h1>
+        <p class="subtitle">Preparing students to make meaningful contributions to society<br>as engaged citizens and leaders in a complex world</p>
+        <div class="academic-areas">
+            <div class="academic-area">
+                <img src="https://www.stanford.edu/wp-content/uploads/2023/05/20230418_Grayson_Armour_95A0681-2.jpg" alt="Undergraduate Education">
+                <h3>Undergraduate Education</h3>
+                <p>Rich learning experiences that provide a broad liberal arts foundation and deep subject-area expertise</p>
+                <a href="#">Undergraduate Education &gt;</a>
+            </div>
+            <div class="academic-area">
+                <img src="https://www.stanford.edu/wp-content/uploads/2023/03/20220714Hopkins_Marine_Station_N6A7270-1-2048x1366.jpg" alt="Graduate Education">
+                <h3>Graduate Education</h3>
+                <p>Unsurpassed opportunities to participate in the advancement of entire fields of knowledge</p>
+                <a href="#">Graduate education &gt;</a>
+            </div>
+            <div class="academic-area">
+                <img src="https://www.stanford.edu/wp-content/uploads/2023/03/20211117_Elizabeth_Reese_N6A0441-2048x1366.jpg" alt="Driving impact">
+                <h3>Driving impact</h3>
+                <p>Continuing adult education, executive and professional programs, and programs for K-12 students</p>
+                <a href="#">Lifelong Learning &gt;</a>
+            </div>
+        </div>
+    </main>
+    <script>
+      document
+        .querySelector(".cta-button")
+        .addEventListener("click", function (e) {
+          e.preventDefault();
+          alert("Exploring Christ!");
+        });
+    </script>
+  </body>
+</html>

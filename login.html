@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome Back - Stanford Login</title>
+    <style>
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        height: 100%;
+        background-image: "https://www.stanford.edu/wp-content/uploads/2024/09/20240917_NSO_Convocation_95A6053-1.jpg";
+        background-size: cover; /* This makes sure the image covers the entire background */
+        background-repeat: no-repeat; /* This prevents the image from repeating */
+        background-position: center center;
+      }
+      header {
+        background-color: #8c1515;
+        color: white;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .logo {
+        font-size: 24px;
+        font-weight: bold;
+      }
+      nav ul {
+        list-style-type: none;
+        display: flex;
+        gap: 20px;
+      }
+      nav ul li a {
+        color: white;
+        text-decoration: none;
+      }
+      main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: calc(100% - 60px);
+      }
+      .login-container {
+        width: 300px;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+      }
+      h1 {
+        text-align: center;
+        color: #333;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+      }
+      label {
+        margin-top: 10px;
+        font-weight: bold;
+      }
+      input {
+        padding: 10px;
+        margin-top: 5px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+      }
+      .password-container {
+        position: relative;
+      }
+      .password-toggle {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+      }
+      .forgot-password {
+        text-align: right;
+        margin-top: 5px;
+      }
+      .forgot-password a {
+        color: #0066cc;
+        text-decoration: none;
+        font-size: 14px;
+      }
+      .login-button {
+        background-color: #8c1515;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        margin-top: 20px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a href="index.html" style="text-decoration: none; color: white;"
+        ><div class="logo">Christ University</div></a
+      >
+      <nav>
+        <ul>
+          <li><a href="#news">News</a></li>
+          <li><a href="#events">Events</a></li>
+          <li><a href="#academics">Academics</a></li>
+          <li><a href="#research">Research</a></li>
+          <li><a href="#health-care">Health Care</a></li>
+          <li><a href="#campus-life">Campus Life</a></li>
+          <li><a href="#admission">Admission</a></li>
+          <li><a href="signup.html">Signup</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div class="login-container">
+        <h1>Welcome back</h1>
+        <form>
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            placeholder="name@email.com"
+            required
+          />
+
+          <label for="password">Password</label>
+          <div class="password-container">
+            <input
+              type="password"
+              id="password"
+              placeholder="Enter your password"
+              required
+            />
+            
+          </div>
+
+          <div class="forgot-password">
+            <a href="#">Forgot password?</a>
+          </div>
+
+          <button type="submit" class="login-button">Login</button>
+        </form>
+      </div>
+    </main>
+    <script>
+      document
+        .querySelector(".password-toggle")
+        .addEventListener("click", function () {
+          const passwordInput = document.getElementById("password");
+          const type =
+            passwordInput.getAttribute("type") === "password"
+              ? "text"
+              : "password";
+          passwordInput.setAttribute("type", type);
+          this.textContent = type === "password" ? "👁️" : "👁️‍🗨️";
+        });
+    </script>
+  </body>
+</html>
