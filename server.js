@@ -8,7 +8,6 @@ const cors = require("cors");
 require("dotenv").config();
 
 const app = express();
-const port = process.env.PORT || 3000;
 
 // CORS middleware
 app.use(cors());
@@ -141,6 +140,7 @@ app.post("/logout", (req, res) => {
 });
 
 // Start the server
+const port = process.env.PORT || 3000; // Use the environment variable for the port
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
