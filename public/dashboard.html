@@ -113,7 +113,7 @@
           <li><a href="dashboard.html">Dashboard</a></li>
           <li><a href="fees.html">Fees Portal</a></li>
           <li><a href="academics.html">Academics</a></li>
-          <li><a href="settings.html">Settings</a></li>
+          <li><a href="#" id="logoutButton">Logout</a></li>
         </ul>
       </nav>
     </header>
@@ -132,7 +132,7 @@
 
       <!-- Main content area -->
       <main>
-        <h1>Welcome, [Student Name]</h1>
+        <h1>Welcome, <span id="studentName">[Student Name]</span></h1>
 
         <div class="card-container">
           <!-- Cards representing different sections of the dashboard -->
@@ -156,5 +156,55 @@
         </div>
       </main>
     </div>
+
+    <script>
+      // Fetch user data and populate dashboard
+      async function fetchDashboardData() {
+        try {
+          const response = await fetch('/api/dashboard');
+          const data = await response.json();
+
+          if (response.ok) {
+            // Set the student's name dynamically
+            document.getElementById('studentName').textContent = data.fullname;
+          } else {
+            console.error(data.message);
+            alert('Error fetching dashboard data. Please login again.');
+            window.location.href = '/login.html'; // Redirect to login if unauthorized
+          }
+        } catch (error) {
+          console.error('Error fetching dashboard data:', error);
+        }
+      }
+
+      // Logout functionality
+      document.getElementById('logoutButton').addEventListener('click', async function (e) {
+        e.preventDefault();
+
+        try {
+          const response = await fetch('/logout', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          });
+
+          const result = await response.json();
+
+          if (response.ok) {
+            alert(result.message);
+            window.location.href = '/login.html'; // Redirect to login page after logout
+          } else {
+            console.error(result.message);
+            alert('Logout failed. Please try again.');
+          }
+        } catch (error) {
+          console.error('Error logging out:', error);
+        }
+      });
+
+      // Fetch the user data when the page loads
+      fetchDashboardData();
+    </script>
   </body>
 </html>

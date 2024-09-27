@@ -108,15 +108,15 @@
     </header>
     <div class="container">
         <h1>Sign Up</h1>
-        <form>
+        <form id="signupForm">
             <label for="fullname">Full Name</label>
-            <input type="text" id="fullname" placeholder="Enter your full name" required />
+            <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required />
 
             <label for="email">Email</label>
-            <input type="email" id="email" placeholder="you@example.com" required />
+            <input type="email" id="email" name="email" placeholder="you@example.com" required />
 
             <label for="password">Password</label>
-            <input type="password" id="password" placeholder="Enter your password" required />
+            <input type="password" id="password" name="password" placeholder="Enter your password" required />
 
             <label for="confirm-password">Confirm Password</label>
             <input type="password" id="confirm-password" placeholder="Confirm your password" required />
@@ -128,5 +128,36 @@
             Already have an account? <a href="login.html">Log In</a>
         </div>
     </div>
-</body>
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData.entries());
+            
+            if (data.password !== document.getElementById('confirm-password').value) {
+                alert("Passwords don't match");
+                return;
+            }
+            
+            try {
+                const response = await fetch('/signup', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                });
+                const result = await response.json();
+                if (response.ok) {
+                    alert(result.message);
+                    window.location.href = '/login.html';
+                } else {
+                    alert(result.message);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred. Please try again.');
+            }
+        });
+    </script>
 </html>
